@@ -1,0 +1,39 @@
+server:
+  port: 8089
+  servlet:
+    context-path: /somecontextpath
+
+spring:
+  application:
+    name: paymentsExpose
+  main:
+    allow-circular-references: true
+    allow-bean-definition-overriding: true
+  security:
+    oauth2:
+      client:
+        registration:
+          sso:
+            authorization-grant-type: ${GRANT_TYPE:client_credentials}
+            scope: ${SSO_AUTHORITIES}
+
+
+  jpa:
+    hibernate:
+       ddl-auto: create-drop:security
+  oauth2:
+    client:
+      grant-type: ${GRANT_TYPE:client_credentials}
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: env,health
+  endpoint:
+    env:
+      enabled: true
+    health:
+      enabled: true
+
+
