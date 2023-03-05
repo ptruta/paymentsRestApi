@@ -15,6 +15,8 @@ import restApisPayments.paymentsExpose.service.PaymentsService;
 
 import java.util.List;
 
+import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
+
 @Slf4j
 @RestController
 @RequestMapping("Payments")
@@ -28,7 +30,8 @@ public class PaymentsController {
         this.objectMapper = objectMapper;
     }
 
-    @PostMapping(value = {"/payments-refactor"})
+    @PostMapping(value = {"/payments-refactor"},
+            produces = APPLICATION_JSON_VALUE, consumes = APPLICATION_JSON_VALUE)
     public ResponseEntity<String> paymentRefactor(
             final @RequestBody List<Payment> paymentsList,
             final int amount) throws PaymentException, JsonProcessingException {
