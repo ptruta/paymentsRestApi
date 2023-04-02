@@ -5,12 +5,14 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class Payment {
-    private Integer id;
+public class PaymentsAndAmount {
+    private List<Payment> paymentList;
+
     private int amount;
-    private String type;
 }

@@ -7,43 +7,43 @@ spring:
   main:
     allow-circular-references: true
     allow-bean-definition-overriding: true
-  security:
-    oauth2:
-      resource-server:
-        jwt:
-          jwk-set-uri: http://localhost:8080/oauth2/default
-      client:
-        registration:
-          instagram:
-            authorization-grant-type: client_credentials
-            client-id: 6833951273265217
-            client-secret: 398ec124b13c38ea175ded5badb117a2
-            redirectUri: "{baseUrl}/oauth2/callback/{registrationId}"
-            scope:
-              - email
-              - public_profile
-        provider:
-          instagram:
-            authorization-uri: http://localhost:8080/oauth/authorize
-            #https in case we want the deployed url
-            token-uri: http://localhost:8080/oauth/access_token
+#  security:
+#    oauth2:
+#      resource-server:
+#        jwt:
+#          jwk-set-uri: http://localhost:8080/oauth2/default
+#      client:
+#        registration:
+#          instagram:
+#            authorization-grant-type: client_credentials
+#            client-id: 6833951273265217
+#            client-secret: 398ec124b13c38ea175ded5badb117a2
+#            redirectUri: "{baseUrl}/oauth2/callback/{registrationId}"
+#            scope:
+#              - email
+#              - public_profile
+#        provider:
+#          instagram:
+#            authorization-uri: http://localhost:8080/oauth/authorize
+#            #https in case we want the deployed url
+#            token-uri: http://localhost:8080/oauth/access_token
 
-  jpa:
-    hibernate:
-       ddl-auto: create-drop:security
-  oauth2:
-    client:
-      grant-type: client_credentials
-
-management:
-  endpoints:
-    web:
-      exposure:
-        include: env,health
-  endpoint:
-    env:
-      enabled: true
-    health:
-      enabled: true
+#  jpa:
+#    hibernate:
+#       ddl-auto: create-drop:security
+#  oauth2:
+#    client:
+#      grant-type: client_credentials
+#
+#management:
+#  endpoints:
+#    web:
+#      exposure:
+#        include: env,health
+#  endpoint:
+#    env:
+#      enabled: true
+#    health:
+#      enabled: true
 
 
